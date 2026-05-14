@@ -13,7 +13,7 @@ from azure.identity import DefaultAzureCredential
 
 # Initialize the client
 client = AIProjectClient(
-    endpoint="https://2026agent-nc.services.ai.azure.com/api/projects/proj-default",
+    endpoint="https://ai-foundry202604.services.ai.azure.com/api/projects/proj-default",
     credential=DefaultAzureCredential()
 )
 
@@ -24,13 +24,13 @@ agent = client.agents.create_version(
         container_protocol_versions=[ProtocolVersionRecord(protocol=AgentProtocol.RESPONSES, version="v1")],
         cpu="1",
         memory="2Gi",
-        image="superbotcr.azurecr.io/langgraph-appinsight-image:latest",
+        image="superbotcr.azurecr.io/langgraph-foundry-v2:latest",
         environment_variables={
-            "AZURE_OPENAI_ENDPOINT": "https://2026agent-nc.cognitiveservices.azure.com/",
-            "AZURE_AI_MODEL_DEPLOYMENT_NAME": "gpt-5-mini",
-            "OPENAI_API_VERSION": "2025-01-01-preview",
-            "AZURE_AI_PROJECT_ENDPOINT": "https://2026agent-nc.services.ai.azure.com/api/projects/proj-default",
-            "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=cc0032b3-0dee-4dca-bd40-9a89862730b8;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/;LiveEndpoint=https://northcentralus.livediagnostics.monitor.azure.com/;ApplicationId=f7ac9e81-daa2-488d-832a-c66fb2ce4ed7"
+            "AZURE_OPENAI_ENDPOINT": "https://ai-foundry202604.openai.azure.com/openai/v1",
+            "AZURE_AI_MODEL_DEPLOYMENT_NAME": "gpt-5.4-mini",
+            "OPENAI_API_VERSION": "2025-03-01-preview",
+            "AZURE_AI_PROJECT_ENDPOINT": "https://ai-foundry202604.services.ai.azure.com/api/projects/proj-default",
+            "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=6acf3fff-45a5-409b-aff3-9cb77d9e5010;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/;ApplicationId=d016af11-c2d3-4fdf-9efb-7e7f681633f2"
         }
     )
 )
